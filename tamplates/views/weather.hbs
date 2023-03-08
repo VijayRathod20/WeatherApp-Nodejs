@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WetherApp</title>
+    {{>links}}
+</head>
+
+<body>
+    {{>navbar}}
+    <!--main header-->
+    <div class="container main_header">
+        <div class="row">
+            <div class="col-md-10 col-md-12 mx-auto">
+                <div class="main_content">
+                    <form action="" class="temp_form">
+                        <input type="text" placeholder="Enter City Name.." name="cityName" id="cityName" autocomplete="off">
+                        <input type="submit" name="search" id="searchBtn" value="search">
+                    </form>
+                </div>
+                <div class="tempInfo">
+                    <div class="top_layer">
+                        <p id="day">Sunday</p>
+                        <div class="date">
+                            <p id="today_date"></p>
+                            <p id="month"></p>
+                            <p id="year"></p>
+                        </div>
+                    </div>
+                    <div class="main_layer">
+                        <p id="city_name"></p>
+                        <div class="middle_layer data_hide">
+                            <p><span id="temp"></span><sup>o</sup>C</p>
+                            <p id="temp_status"> <i class="fa fa-cloud" aria-hidden="true"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{>footer}}
+
+    <script src="js/main.js"></script>
+    <script>
+            const date = new Date();
+            let day = date.getDate();
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            let month = date.getMonth();
+            let Monthname = months[month];
+            const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const dayname = weekday[date.getDay()];
+            let year = date.getFullYear();
+            let currentDate = `${day}-${month}-${year}`;
+            const todaydate = document.getElementById("today_date");
+            todaydate.innerText = day;
+            const Month = document.getElementById("month");
+            Month.innerText = Monthname;
+            const Day = document.getElementById("day");
+            Day.innerText = dayname;
+            const Year = document.getElementById("year");
+            Year.innerText = year;
+            
+            
+    </script>
+</body>
+
+</html>
